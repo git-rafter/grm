@@ -1,26 +1,25 @@
 {
-  "name": "gdm",
+  "name": "grm",
   "version": "1.0.0",
-  "description": "Git Dependency Manager",
-  "main": "index.js",
+  "description": "Git Repository Manager",
+  "main": "./lib/grm.js",
   "scripts": {
-    "man": "for file in doc/*; do node_modules/marked-man/bin/marked-man --section 1 --manual \"Git Dependency Manager Manual\" $file > \"man/$(basename ${file%.*}).1\"; done",
+    "man": "for file in doc/*; do node_modules/marked-man/bin/marked-man --section 1 --manual \"Git Repository Manager Manual\" $file > \"man/$(basename ${file%.*}).1\"; done",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "gdm": "./lib/gdm.js",
-    "gdm-init": "./lib/gdm-init.js"
+    "grm": "./lib/grm.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nharris85/gdm.git"
+    "url": "git+https://github.com/nharris85/grm.git"
   },
   "author": "Nick Harris",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nharris85/gdm/issues"
+    "url": "https://github.com/nharris85/grm/issues"
   },
-  "homepage": "https://github.com/nharris85/gdm#readme",
+  "homepage": "https://github.com/nharris85/grm#readme",
   "dependencies": {
     "bluebird": "^3.3.4",
     "chalk": "^1.1.1",
@@ -36,5 +35,10 @@
   },
   "devDependencies": {
     "marked-man": "^0.1.5"
+  },
+  "directories": {
+    "man": "./man",
+    "doc": "./doc",
+    "lib": "./lib"
   }
 }

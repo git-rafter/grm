@@ -1,2 +1,2 @@
-# gdm
-Git Dependency Manager
+# grm
+Git Repository Manager
