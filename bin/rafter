@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+var path = require('path');
+var rapido = require('rapido').create();
+var _ = require('lodash');
+
+// Want to use something other than "rapido.json"?
+rapido.configFilename = "rafter.json";
+
+
+// Give your command line tool a name:
+rapido.title = 'Rafter - Git Repository Management Tool';
+
+// Does your project have its own Rápido that were installed from npm?
+// If so, you'll need to tell Rápido where to find them:
+rapido.addNodeModulesDir(path.join(__dirname, '../node_modules'));
+
+// Enable any stacks you need for your Command Line Tool
+rapido.enableStack('rafter');
+rapido.disableDefaultStack = true;
+
+// Add a specific directory that contains a Rápido stack
+rapido.addStackDir(path.join(__dirname, '../lib/'));
+// Multiple stacks with the same command names? Make one of the stacks
+// exclusive to avoid ambigous commands
+// rapido.exclusiveStackCommands('rafter');
+
+// Don't want to list a command in one of the enabled stacks?
+// Then hide it:
+// rapido.hideCommand('default', 'create command');
+// rapido.hideCommand('default', 'create command alias');
+// rapido.hideCommand('default', 'create stack');
+// rapido.hideCommand('default', 'set');
+// rapido.hideCommand('default', 'use');
+// rapido.hideCommand('default', 'list all');
+// rapido.hideCommand('default', 'default');
+
+// Now run Rápido and let it take care of the rest!
+rapido.run(process.argv);
