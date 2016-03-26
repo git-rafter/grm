@@ -14,10 +14,6 @@
             "description": "Lists commands for enabled stacks",
             "file": "../node_modules/rapido/lib/commands/command-list.js"
         },
-        "list all": {
-            "description": "Lists commands for all stacks",
-            "file": "../node_modules/rapido/lib/commands/command-list-all.js"
-        },
         "default": {
             "description": "Default command when $0 is invoked with no arguments",
             "file": "../node_modules/rapido/lib/commands/command-default.js",

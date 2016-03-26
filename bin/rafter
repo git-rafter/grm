@@ -27,12 +27,6 @@ rapido.addStackDir(path.join(__dirname, '../lib/'));
 // Don't want to list a command in one of the enabled stacks?
 // Then hide it:
 // rapido.hideCommand('default', 'create command');
-// rapido.hideCommand('default', 'create command alias');
-// rapido.hideCommand('default', 'create stack');
-// rapido.hideCommand('default', 'set');
-// rapido.hideCommand('default', 'use');
-// rapido.hideCommand('default', 'list all');
-// rapido.hideCommand('default', 'default');
 
 // Now run Rápido and let it take care of the rest!
 rapido.run(process.argv);
