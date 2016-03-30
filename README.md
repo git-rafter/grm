@@ -1,2 +1,2 @@
-# grm
+# Rafter
 Git Repository Manager
