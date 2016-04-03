@@ -4,5 +4,5 @@ Lists the git repository status'
 ## OPTIONS
 ## EXAMPLES
 ```bash
-rafter list
+rafter status
 ```
