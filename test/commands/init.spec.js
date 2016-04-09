@@ -14,7 +14,8 @@ describe("init-github", function(){
       prompt: {
         start: this.sinon.spy(),
         get: this.sinon.stub()
-      }
+      },
+      configFilename: 'rafter.json'
     };
   });
 
@@ -24,7 +25,8 @@ describe("init-github", function(){
 
   describe('#run()', function(){
 
-    it('should init with repos', function(done){
+    it('should init with repos', function(){
+      var self = this;
       var promptResult1 = {
         name: 'myrepo1',
         url: 'myurl1',
@@ -40,18 +42,27 @@ describe("init-github", function(){
       var args = {};
       var config = {};
 
-      this.rapido.prompt.get.onFirstCall().yields(undefined, promptResult1);
-      this.rapido.prompt.get.onSecondCall().yields(undefined, promptResult2);
+      self.rapido.prompt.get.onFirstCall().yields(undefined, promptResult1);
+      self.rapido.prompt.get.onSecondCall().yields(undefined, promptResult2);
 
-      subject.run(args, config, this.rapido).then(function(){
-        assert(this.rapido.prompt.start.calledOnce, 'prompt was not started');
-        assert(this.rapido.writeConfig.calledOnce, 'config was not written to disk');
-        assert(this.rapido.logg.success.calledOnce, 'did not configure any repos');
-        done();
-      })
-      .catch(function(err){
-        expect(err).to.be.undefined;
-        done();
+      return subject.run(args, config, self.rapido).then(function(){
+        assert(self.rapido.prompt.start.calledTwice, 'prompt was not started');
+        assert(self.rapido.writeConfig.calledOnce, 'config was not written to disk');
+        assert(self.rapido.log.success.calledOnce, 'did not configure any repos');
+      });
+    });
+
+    it('should throw error in prompt', function(){
+      var self = this;
+
+      var args = {};
+      var config = {};
+
+      self.rapido.prompt.get.onFirstCall().throws("Error");
+
+      return subject.run(args, config, self.rapido).catch(function(err){
+        assert(self.rapido.prompt.start.calledOnce, 'prompt was not started');
+        assert(self.rapido.log.error.calledOnce, 'did not configure any repos');
       });
     });
   });

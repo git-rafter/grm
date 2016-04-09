@@ -46,7 +46,7 @@
           {
             thresholds: {
               global: {
-                branches: 75
+                branches: 50
               }
             }
           }));
