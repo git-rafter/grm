@@ -26,12 +26,12 @@
     "co": "^4.6.0",
     "co-prompt": "^1.0.0",
     "colors": "^1.1.2",
+    "columnify": "^1.5.4",
     "commander": "^2.9.0",
     "console.table": "^0.4.0",
     "lodash": "^4.6.1",
-    "nodegit": "^0.11.6",
+    "nodegit": "^0.12.2",
     "rapido": "git+https://git@github.com/nharris85/rapido.git",
-    "superagent": "^1.8.0-beta.2",
     "util": "^0.10.3"
   },
   "devDependencies": {
