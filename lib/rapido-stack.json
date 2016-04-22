@@ -6,6 +6,10 @@
             "description": "Lists status of project's git repositories",
             "file": "commands/status.js"
         },
+        "init": {
+            "description": "Initializes a new Rafter project",
+            "file": "commands/init.js"
+        },
         "use": {
             "description": "Enables and disables stacks",
             "file": "../node_modules/rapido/lib/commands/command-use.js"
